@@ -1,0 +1,147 @@
+html, body { /*}, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, textarea, p, blockquote, th, td, img, hr, embed, object { 
+*/	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+
+
+body {
+	height: 100%;
+	font-family: "Lucida Grande", Arial, sans-serif;
+	color: #333;
+	font-size: 13px;
+	background-color: #d3d7cf; /* grey */
+}
+
+
+p {
+	font-size: 13px;
+	line-height: 18px;
+}
+a {
+	text-decoration: none;
+}
+a:link {
+	color: #ad7fa8; 
+}
+a:visited {
+	color: #ad7fa8;
+}
+a:hover, a:active {
+	color: #333;
+}
+
+#banner {
+	height: 100px;
+	background-color: #ad7fa8; 	
+}
+
+#nonFooter {
+	position: relative;
+	min-height: 100%;
+}
+
+* html #nonFooter {
+	height: 100%;
+}
+
+#content {
+	padding-bottom: 9em;
+}
+
+#footer {
+	position: relative;
+	margin-top: -3.5em;
+	text-align: center;
+}
+
+#left {
+	width: 20%;
+	margin-left:10%;
+	float:left;
+}
+
+#right {
+	width: 55%;
+	margin-right:10%;
+	float:right;
+}
+
+#center {
+	width: 50%;	
+	margin-left:25%;
+}
+
+
+#center input {
+	width: 120%;
+}
+
+#center textarea {
+	width: 120%;
+}
+
+#center .small {
+	font-size: 8pt;
+	color: #666;
+	width: 70%;
+}
+
+#center .button {
+	width: 100px;
+}
+
+#clearer {
+	clear:both;
+}
+
+#mainBox img {
+	border: none;
+	float: left;
+}
+
+#mainBox #description {
+	margin-left: 150px;
+	margin-right: 150px;		
+}
+
+img {
+	border:none;
+}
+
+
+.img-inline-left {
+	float:right;
+	margin-right: 15%
+}
+
+.graph { 
+	position: relative; /* IE is dumb */
+	width: 300px; 
+	border: 1px solid #73d216;
+	padding: 2px; 
+	margin-bottom: .5em;
+	margin-left:2em;					
+}
+.graph .bar { 
+	display: block;	
+	position: relative;
+	background: #73d216;
+	text-align: center; 
+	color: #333; 
+	height: 1em; 
+	line-height: 1em;
+	font-size: 11px;									
+}
+.graph .bar span { position: absolute; left: 1em; }
+
+.button {
+	width: 100px;
+}
+
+
+
+

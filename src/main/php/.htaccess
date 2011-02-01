@@ -1,0 +1,18 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+#RewriteRule ^css/ - [L]
+#RewriteRule ^images/ - [L]
+
+RewriteRule ^$ index.html [L]
+RewriteRule ^$ create.html [L]
+
+RewriteRule ^create$ create.php [L]
+RewriteRule ^([0-9a-z]*)/html$ view.php?capability-id=$1 [L]
+RewriteRule ^([0-9a-z]*)/jnlp$ jnlp.php?capability-id=$1 [L]
+
+RewriteRule ^([0-9a-z]*)/ticket$ server.php?capability-id=$1&action=ticket [L]
+RewriteRule ^([0-9a-z]*)/patches$ server.php?capability-id=$1&action=patches [L]
+RewriteRule ^([0-9a-z]*)/patches/all$ server.php?capability-id=$1&action=patches [L]
+RewriteRule ^([0-9a-z]*)/patches/([0-9]*)$  server.php?capability-id=$1&fromTicket=$2&action=patch [L]
+RewriteRule ^([0-9a-z]*)/patches/([0-9]*).([0-9]*)$ server.php?capability-id=$1&fromTicket=$2&toTicket=$3&action=patch [L]

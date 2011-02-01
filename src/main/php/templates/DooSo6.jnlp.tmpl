@@ -1,0 +1,37 @@
+<?php
+	header('Content-type: application/x-java-jnlp-file');
+	header('Content-Disposition: attachment; filename="'.$capabilityId.'.jnlp"');
+?>
+<jnlp spec="1.0+" codebase="<?php echo "$codebase"; ?>">
+	<information> 
+		<title>DooSo6 - <?echo "$action";?></title> 
+	  	<vendor>LibreSource project</vendor>
+	  	<description>
+			DooSo6 <?php echo "$action"; ?> Application
+			(<?php echo "$repositoryName with capability $capabilityId"?>)
+		</description>
+	</information> 
+	<security>
+		<all-permissions/>
+    </security>
+    <resources>
+    	<j2se version="1.6+"/>
+ 		<jar href="lib/dso6-core-1.0-SNAPSHOT.jar" main="true"/>
+		<jar href="lib/jlibdiff-2.0.jar" />
+		<jar href="lib/jxydiff-1.0.jar" />
+		<jar href="lib/httpmime-4.0-beta2.jar" />
+		<jar href="lib/httpcore-4.0-beta3.jar" />
+		<jar href="lib/apache-mime4j-0.5.jar" />
+		<jar href="lib/commons-logging-1.1.1.jar" />
+		<jar href="lib/httpclient-4.0-beta2.jar"/>
+		<jar href="lib/commons-codec-1.3.jar" />
+  		<property name="file.encoding" value="<?php echo "$encoding"; ?>"/>
+    </resources>
+    <application-desc main-class="<?php echo "$mainClass"; ?>">
+    	<?php
+    		foreach ($arguments as $argument) {
+				echo "<argument>$argument</argument>\n";
+			}
+    	?>
+   </application-desc>
+</jnlp> 

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+	<head>
+		<title>DooSo6: Easy Collaboration</title>
+		<link rel="stylesheet" type="text/css" href="../css/dso6.css"/>
+	</head>
+	<body>
+		<div id="nonFooter">
+			<div id="content">
+				<div id="banner">
+				
+				
+				</div>
+				<div id="main">
+					<div id="center">
+
+					<h3>Admin Repository</h3>
+
+					<h4>Properties:</h4>
+
+					<table>
+					<form method="GET" action="#">
+						<tr><td>Title:</td></tr>
+						<tr><td><input type="text" name="title" value="<?php echo $queue->getName(); ?>"/></input></td></tr>
+						
+						<tr><td>Description (optional):</td></tr>
+						<tr><td><textarea name="description" id="description" cols="44" rows="10"><?php echo $queue->getDescription(); ?></textarea></td></tr>
+						
+						<tr><td>Your name:</td></tr>
+						<tr><td><input type="text" name="username" value="<?php echo $queue->getOwner(); ?>"></input></td></tr>
+						
+						<tr><td>E-mail address (optional):</td></tr>
+						<tr><td><input type="text" name="email" value="<?php echo $queue->getEmail(); ?>"></input></td></tr>						
+
+						<tr><td>Binary file extension:</td></tr>
+						<tr><td><input type="text" name="email" value="<?php echo $queue->getBinaryExtensions(); ?>"></input></td></tr>						
+					</table>
+			
+					<br/><br/>
+					<input class="button" type="submit" value="Update &nbsp;&raquo;" id="update" disabled="disabled"/>					
+					</form>
+					
+					<br/><br/>
+										
+					<?php include 'CollaboratorsView.tmpl'; ?>
+								
+					<br/><br/>
+
+					</div>
+					<div id="clearer"></div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<p><a href=".">Home</a> - 
+			   <a href="about/about.html">About</a> - 
+			   <a href="about/tos.html">Terms</a> - 
+			   <a href="about/policy.html">Privacy</a> - 
+			   <a href="about/help.html">Help</a> - 
+			   <a href="about/contact.html">Contact</a> - &copy; 2009 ECOO Team / LORIA / INRIA Nancy - Grand Est
+			</p>			
+		</div>
+	</body>
+</html>

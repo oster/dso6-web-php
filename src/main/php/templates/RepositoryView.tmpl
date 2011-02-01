@@ -1,0 +1,24 @@
+<h4><?php echo $queue->getName(); ?></h4>
+<table>
+	<tr>
+		<td class="date">Created by:</td>
+		<td class="date"><?php echo $queue->getOwner()." &lt;".$queue->getEmail()."&gt;"; ?></td>
+	</tr>
+	<tr>
+		<td class="date">Summary:</td>
+		<td class="date"><?php echo $queue->getDescription(); ?></td>
+	</tr>
+	<tr>
+		<td class="date">Last ticket:</td>
+		<td class="date"><?php echo $queue->getLastTicket(); ?></td>
+	</tr>
+	<tr>
+		<td class="date">Binary file extensions:</td>
+		<td class="date"><?php echo $queue->getBinaryExtensions(); ?></td>
+	</tr>
+	<tr>
+		<td class="date">File encoding:</td>
+		<td class="date"><?php echo $queue->getFileEncoding(); ?></td>
+	</tr>
+</table>
+

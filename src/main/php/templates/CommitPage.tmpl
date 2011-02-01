@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+	<head>
+		<title>DooSo6: Easy Collaboration</title>
+		<link rel="stylesheet" type="text/css" href="../css/dso6.css"/>
+	</head>
+	<body>
+		<div id="nonFooter">
+			<div id="content">
+				<div id="banner">
+				
+				
+				</div>
+				<div id="main">
+					<div id="center">
+					
+					<h3>Commit to Repository</h3>
+
+
+					<?php include 'RepositoryView.tmpl'; ?>
+					<?php include 'CollaboratorsView.tmpl'; ?>
+								
+					<br/><br/>
+
+					<form action="<?php echo "../$commitCapabilityId/jnlp";?>">
+						<input class="button" type="submit" value="Commit &nbsp;&raquo;">					
+					</form>
+					<br/>
+					<p class="small">If you did not own a workspace yet, or if there exist changes that you did not consume yet, then you will have to update local workspace. Please use the action below</p>
+
+					<form action="<?php echo "../$updateCapabilityId/jnlp";?>">
+						<input class="button" type="submit" value="Update &nbsp;&raquo;">					
+					</form>
+										
+					</div>
+					<div id="clearer"></div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<p><a href=".">Home</a> - 
+			   <a href="about/about.html">About</a> - 
+			   <a href="about/tos.html">Terms</a> - 
+			   <a href="about/policy.html">Privacy</a> - 
+			   <a href="about/help.html">Help</a> - 
+			   <a href="about/contact.html">Contact</a> - &copy; 2009 ECOO Team / LORIA / INRIA Nancy - Grand Est
+			</p>			
+		</div>
+	</body>
+</html>
