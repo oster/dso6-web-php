@@ -13,8 +13,11 @@ class Queue {
 	var $owner; 
 	var $email; 
 
+	var $lastTicketConsumedByUsers;
+
 	function __construct() {
 		$this->patches = array();
+		$this->lastTicketConsumedByUsers = array();
 	}
 
     function getId() {
@@ -92,7 +95,15 @@ class Queue {
 	function setEmail($email) {
 		$this->email = $email;
 	}
-		
+	
+	function userConsumedTicket($userId, $ticket) {
+		$this->lastTicketConsumedByUsers[$userId] = $ticket;		
+	}
+	
+	function getLastTicketConsumedByUsers() {
+		return $this->lastTicketConsumedByUsers;
+	}
+
 }
 
 ?>

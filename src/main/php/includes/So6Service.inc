@@ -20,6 +20,12 @@ interface So6Service {
     function listPatchesInQueue($queueId); // returns list of PatchId
 
 	function listQueues(); // returns list of all QueueId
+
+	// awareness method to notify server that a particular user/client have seen/sent patches till a specific ticket from a queue
+	// TODO: specify what is a userId ;)
+    function setTicketConsumerByUser($queueId, $ticket, $userId); // return void
+
+    function listTicketConsumedByUsers($queueId); // returns array(userId, ticket)
 }
 
 ?>

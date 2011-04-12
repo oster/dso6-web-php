@@ -191,7 +191,17 @@ class So6ServiceFileImpl implements So6Service {
 	function listQueues() {
 		return $this->queuesId;
 	}
-
+	
+	function setTicketConsumerByUser($queueId, $ticket, $userId) {
+		$q = $this->getQueue($queueId);
+		$q->userConsumedTicket($userId, $ticket);
+		$this->__saveQueue($q);
+	}
+	
+    function listTicketConsumedByUsers($queueId) {
+		$q = $this->getQueue($queueId);
+		return $q->getLastTicketConsumedByUsers();
+	}
 
 	function getQueueCapability($capabilityId) {
 		return $this->capabilities[$capabilityId];

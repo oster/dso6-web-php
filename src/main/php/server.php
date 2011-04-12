@@ -4,6 +4,8 @@
    GET requests
 	 /$CID/ticket          returns last queue ticket 
 								format: a single integer
+	 /$CID/ticket/consumed	returns a set of <userId, lastTicket> which indicates for each userId which ticket he has consumed.
+								format: a sequences of lines 'userId ticket'
 	 /$CID/patches         returns all patches id 
 								format: a sequences of lines 'patchid fromTicket toTicket filesize'
 	 /$CID/patches/all        (same as above)
@@ -14,6 +16,9 @@
    POST requests
      /$CID/patches/X.Y     add a new patch to queue
 								multi-part (fromTicket, toTicket, validate, file)
+								
+	/$CID/ticket/consumed  notify that userId has consumed ticket
+								multi-part (userId, ticket)
 
 */
 
@@ -37,6 +42,21 @@ switch ($_SERVER['REQUEST_METHOD']) {
 						$queueId = $capability->getResourceId();
 						$queue = $service->getQueue($queueId);
 						print $queue->getLastTicket();
+					}
+				} catch (Exception $ex) {
+					header("HTTP/1.0 403 Not Found - Please provide a valid capability identifier");		
+				}	
+				break;
+			case "consumed-ticket":
+				try {
+					$capability = $service->getQueueCapability($capabilityId);
+					if ($capability->getRight() == R_READ) {
+						$queueId = $capability->getResourceId();
+						
+						$ticketForUsers = $service->listTicketConsumedByUsers($queueId);
+						foreach ($ticketForUsers as $userId => $ticket) {
+							print $userId.' '.$ticket."\n";
+						}
 					}
 				} catch (Exception $ex) {
 					header("HTTP/1.0 403 Not Found - Please provide a valid capability identifier");		
@@ -112,6 +132,23 @@ switch ($_SERVER['REQUEST_METHOD']) {
 						header("HTTP/1.0 403 Not Found - Please provide a valid capability identifier <".$capability->getId().">");														
 					}					
 					break;
+					
+			case "consumed-ticket":
+				$ticket = $_POST['userId'];
+				$userId = $_POST['ticket'];
+			
+   				try {
+   					$capability = $service->getQueueCapability($capabilityId);
+   					if ($capability->getRight() == R_READ) {
+   						$queueId = $capability->getResourceId();
+   						$service->setTicketConsumerByUser($queueId, $ticket, $userId));
+   					}
+   				} catch (Exception $ex) {
+   					header("HTTP/1.0 403 Not Found - Please provide a valid capability identifier");		
+   				}	
+   				break;		
+   			
+					
 			default:
 					header("HTTP/1.0 403 Not Found - Unknown action");
 		}
