@@ -1,6 +1,18 @@
 <h4>Collaborators</h4>
 
 <table>
+	<?php
+	    $lastTicket = $queue->getLastTicket();
+		foreach($queue->getLastTicketConsumedByUsers() as $userId => $consumedTicket) {
+			echo '<tr>';
+			echo '	<td class="username">'.$userId.'</td>';
+			echo '  <td><div class="graph"><strong class="bar" style="width: '.($consumedTicket*100/$lastTicket).'%;"><span>'.$consumedTicket.'</span></strong></div></td>';
+			echo '  <td class="date">Apr 1st, 2011 10:14am</td>';
+			echo '</tr>';
+		}
+	?>
+	
+<!--	
 	<tr>
 		<td class="username">Gerald Oster</td>
 		<td><div class="graph"><strong class="bar" style="width: 54%;"><span>54%</span></strong></div></td>
@@ -16,4 +28,5 @@
 		<td><div class="graph"><strong class="bar" style="width: 8%;"><span>8%</span></strong></div></td>
 		<td class="date">Mar 19th, 2009 11:37pm</td>
 	</tr>						
+-->
 </table>
