@@ -50,7 +50,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 			case "consumed-ticket":
 				try {
 					$capability = $service->getQueueCapability($capabilityId);
-					if ($capability->getRight() == R_READ) {
+					if ($capability->getRight() == R_UPDATE) {
 						$queueId = $capability->getResourceId();
 
 						$ticketForUsers = $service->listTicketConsumedByUsers($queueId);
@@ -134,12 +134,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
 					break;
 
 			case "consumed-ticket":
-				$ticket = $_POST['userId'];
-				$userId = $_POST['ticket'];
+				$ticket = $_POST['ticket'];
+				$userId = $_POST['userId'];
 
    				try {
    					$capability = $service->getQueueCapability($capabilityId);
-   					if ($capability->getRight() == R_READ) {
+   					if ($capability->getRight() == R_UPDATE || $capability->getRight() == R_COMMIT) {
    						$queueId = $capability->getResourceId();
    						$service->setTicketConsumerByUser($queueId, $ticket, $userId);
    					}
